@@ -1,10 +1,39 @@
 import React from 'react';
+import { ITodo } from '../interfaces';
 
-const TodoList: React.FC = () => {
+type TodoListProps = {
+    todos: ITodo[];
+    // onToggle(id: number): void
+    // onRemove: (id: number) => void
+}
+
+const TodoList: React.FC<TodoListProps> = ({ todos }) => {
     return (
-        <div>
+        <ul>
+            {todos.map(todo => {
+                const classes = ['todo']
+                if (todo.completed) {
+                    classes.push('completed')
+                }
 
-        </div>
+                return (
+                    <li className={classes.join(' ')} key={todo.id}>
+                        <label>
+                            <input
+                                type="checkbox"
+                                checked={todo.completed}
+                            />
+                            <span>{todo.title}</span>
+                            <i
+                                className="material-icons red-text"
+                            >
+                                delete
+                            </i>
+                        </label>
+                    </li>
+                )
+            })}
+        </ul>
     )
 };
 
