@@ -1,50 +1,22 @@
 import React from 'react';
-import NavBar from './components/navbar';
-import { TodoForm } from './components/todoForm';
-import TodoList from './components/todoList';
-import { ITodo } from './interfaces';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/navbar';
+import { TodosPage } from './pages/todosPage';
+import { AboutPage } from './pages/aboutPage';
 
 const App: React.FC = () => {
-  const [todos, setTodos] = React.useState<ITodo[]>([]);
-
-  const addHandler = (title: string) => {
-    const newTodo: ITodo = {
-      title: title,
-      id: Date.now(),
-      completed: false
-    };
-    setTodos(prev => [newTodo, ...prev]);
-  };
-
-  const toggleHandler = (id: number) => {
-    setTodos(prev =>
-      prev.map(todo => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            completed: !todo.completed
-          };
-        }
-        return todo;
-      }));
-  };
-
-  const removeHandler = (id: number) => {
-    setTodos(prev => prev.filter(todo => todo.id !== id));
-  };
 
   return (
-    <>
-      <NavBar />
-      <div className='container'>
-        <TodoForm addHandler={addHandler} />
-        <TodoList
-          todos={todos}
-          onToggle={toggleHandler}
-          onRemove={removeHandler} />
+    <BrowserRouter>
+      <Navbar />
+      <div className="container">
+        <Routes>
+          <Route element={<TodosPage />} path="/" />
+          <Route element={<AboutPage />} path="/about" />
+        </Routes>
       </div>
-    </>
-  );
+    </BrowserRouter>
+  )
 }
 
 export default App;
