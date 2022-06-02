@@ -1,18 +1,15 @@
 import React from 'react';
 
 interface ITodoFormProps {
-  onAdd: (title: string) => void;
+  addHandler: (title: string) => void;
 }
 
-/**
- * В компоненте представленны 2 варианта его реализации: через useState и useRef
- */
-export const TodoForm: React.FC<ITodoFormProps> = ({ onAdd }) => {
+export const TodoForm: React.FC<ITodoFormProps> = ({ addHandler }) => {
   const ref = React.useRef<HTMLInputElement>(null);
 
   const keyPressHandler = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      onAdd(ref.current!.value);
+      addHandler(ref.current!.value);
       ref.current!.value = '';
     }
   };

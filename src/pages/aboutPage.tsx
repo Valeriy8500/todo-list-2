@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 
 export const AboutPage: React.FC = () => {
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -12,7 +12,7 @@ export const AboutPage: React.FC = () => {
         vero, repudiandae expedita beatae iure? Mollitia tempore quae qui
         voluptatum.
       </p>
-      <button className="btn" onClick={() => history('/')}>
+      <button className="btn" onClick={() => navigate('/')}>
         Обратно к списку дел
       </button>
     </>
