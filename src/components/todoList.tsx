@@ -14,7 +14,7 @@ const TodoList: React.FC<TodoListProps> = ({
 }) => {
 
   if (todos.length === 0) {
-    return <p className="center">Пока дел нет!</p>
+    return <p className="center">Пока дел нет!</p>;
   }
 
   const removeHandler = (e: React.MouseEvent, id: number) => {

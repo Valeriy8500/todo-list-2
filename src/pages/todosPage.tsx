@@ -6,12 +6,10 @@ import { ITodo } from '../interfaces';
 declare var confirm: (question: string) => boolean;
 
 export const TodosPage: React.FC = () => {
-  const [todos, setTodos] = React.useState<ITodo[]>([]);
-
-  React.useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem('todos') || '[]') as ITodo[];
-    setTodos(saved);
-  }, []);
+  const [todos, setTodos] = React.useState<ITodo[]>(() => {
+    const storageInfo = JSON.parse(localStorage.getItem('todos') || '[]') as ITodo[];
+    return storageInfo;
+  });
 
   React.useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
