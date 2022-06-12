@@ -1,8 +1,8 @@
 {
-  "name": "todo-list2",
+  "name": "todo-list-2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://valeriy8500.github.io/Todo/",
+  "homepage": "https://valeriy8500.github.io/todo-list-2/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
