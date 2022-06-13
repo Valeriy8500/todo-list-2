@@ -12,7 +12,7 @@ export const AboutPage: React.FC = () => {
         vero, repudiandae expedita beatae iure? Mollitia tempore quae qui
         voluptatum.
       </p>
-      <button className="btn" onClick={() => navigate('/')}>
+      <button className="btn" onClick={() => navigate('/todo-list-2')}>
         Обратно к списку дел
       </button>
     </>
